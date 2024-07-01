@@ -1,24 +1,20 @@
 ---
-- name: Ansible AWX test with Playbook
-  hosts: all
-  connection: local
-  gather_facts: false
-  become: true
-
+- name: Setup httpd server
+  hosts: localhost
+  become: false
   tasks:
-  - name: Hello World!
-    shell: echo "Hi! Tower is working!"
-
-  - name: collect facts about system services
-    service_facts:
-    register: services_state
-
-  - name: Debug
-    debug:
-      var: services_state
-  
-  - name: Httpd Install 
-    yum: 
+   - name: Install httpd
+     ansible.builtin.package:
       name: httpd
       state: present
-    become: true
+     become: true
+   - name: Copy file from base system to target node
+     ansible.builtin.copy:
+      src: /root/test.html
+      dest: /var/www/html/lw.html
+
+   - name: Start service httpd, if not started
+     ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: true
