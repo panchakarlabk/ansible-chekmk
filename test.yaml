@@ -1,13 +1,13 @@
 ---
 - name: Setup httpd server
   hosts: localhost
-  become: false
+  become: true
   tasks:
    - name: Install httpd
      ansible.builtin.package:
       name: httpd
       state: present
-     become: true
+
    - name: Copy file from base system to target node
      ansible.builtin.copy:
       src: /root/test.html
