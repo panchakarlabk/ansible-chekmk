@@ -2,9 +2,10 @@
 - name: Ansible AWX test with Playbook
   hosts: all
   become: true
+  connection: local
+  gather_facts: yes
 
   tasks:
-
   - name: Hello World!
     shell: echo "Hi! Tower is working!"
 
