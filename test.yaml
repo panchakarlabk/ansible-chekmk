@@ -1,6 +1,7 @@
 ---
 - name: Setup httpd server
   hosts: localhost
+  become: false
   
   tasks:
    - name: Install httpd
