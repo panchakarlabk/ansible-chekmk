@@ -1,0 +1,19 @@
+---
+- name: Setup httpd server
+  hosts: all
+  tasks:
+   - name: Install httpd
+     ansible.builtin.package:
+      name: httpd
+      state: present
+
+   - name: Copy file from base system to target node
+     ansible.builtin.copy:
+      src: /root/test.html
+      dest: /var/www/html/lw.html
+
+   - name: Start service httpd, if not started
+     ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: true
