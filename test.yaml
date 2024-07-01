@@ -8,6 +8,14 @@
   - name: Hello World!
     shell: echo "Hi! Tower is working!"
 
+  - name: collect facts about system services
+    service_facts:
+    register: services_state
+
+  - name: Debug
+    debug:
+      var: services_state
+  
   - name: Httpd Install 
     yum: 
       name: httpd
