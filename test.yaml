@@ -1,7 +1,8 @@
 ---
 - name: Setup httpd server
-  hosts: all
+  hosts: localhost
   become: true
+  gather_facts: true
   tasks:
    - name: Install httpd
      ansible.builtin.package:
