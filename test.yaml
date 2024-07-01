@@ -12,7 +12,7 @@
 
    - name: Copy file from base system to target node
      ansible.builtin.copy:
-      src: root/test.html
+      src: /home/bharat/test.html
       dest: /var/www/html/lw.html
      become: true
 
