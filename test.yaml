@@ -7,7 +7,7 @@
   - name: Hello World!
     shell: echo "Hi! Tower is working!"
 
-  - name: Hello World!
+  - name: Httpd Install 
     yum: 
       name: httpd
       state: present
