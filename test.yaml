@@ -1,6 +1,7 @@
 ---
-- name: Hello World!
+- name: Ansible AWX test with Playbook
   hosts: all
+  become: true
 
   tasks:
 
