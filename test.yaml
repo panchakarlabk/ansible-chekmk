@@ -9,11 +9,11 @@
       name: httpd
       state: present
      become: true
-
-   - name: Copy file from base system to target node
-     ansible.builtin.copy:
-      src: /home/bharat/test.html
-      dest: /var/www/html/lw.html
+   
+   - name: Install httpd
+     ansible.builtin.package:
+      name: nginx
+      state: present
      become: true
 
    - name: Start service httpd, if not started
