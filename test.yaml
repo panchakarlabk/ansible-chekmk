@@ -3,7 +3,7 @@
   hosts: all
   become: true
   connection: local
-  gather_facts: yes
+  gather_facts: false
 
   tasks:
   - name: Hello World!
